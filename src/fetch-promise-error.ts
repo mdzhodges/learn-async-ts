@@ -1,14 +1,14 @@
 // a type for the products from the API
 interface Product {
-  name: string;
-  price: number;
-  image: string;
-  type: string;
+    name: string;
+    price: number;
+    image: string;
+    type: string;
 }
 
 // Call to fetch() throws an error due to a bad URL
 const fetchPromise3 = fetch(
-  "https://mdn.github.io/learningarea/javascript/apis/fetching-data/can-store/products.json",
+    "https://mdn.github.io/learningarea/javascript/apis/fetching-data/can-store/products.json",
 );
 
 /**
@@ -20,19 +20,19 @@ const fetchPromise3 = fetch(
  * This is an illustration of error handling
  */
 fetchPromise3
-  .then((response: Response) => {
-    if (response.ok) {
-      return response.json() as Promise<Product[]>;
-    }
-    throw new Error(`Bad Response : ${response.status}`)
-  })
-  .then((products: Product[]) => {
-    products.forEach((product: Product) => {
-      console.log(product.name);
+    .then((response: Response) => {
+        if (response.ok) {
+            return response.json() as Promise<Product[]>;
+        }
+        throw new Error(`Bad Response : ${response.status}`)
+    })
+    .then((products: Product[]) => {
+        products.forEach((product: Product) => {
+            console.log(product.name);
+        });
+    })
+    .catch((error) => {
+        console.error(`Failed to get products: ${error}`);
     });
-  })
-  .catch((error) => {
-    console.error(`Failed to get products: ${error}`);
-  });
 
 console.log('Chaining promises ... ');

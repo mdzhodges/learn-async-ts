@@ -6,16 +6,17 @@
  */
 function sum2DArray(arr: number[][]): Promise<number> {
     return new Promise((resolve, reject) => {
-        console.log('Sum called ... ');
-        if(arr.length === 0) {
+        console.log("Sum Called ...");
+        if (arr.length === 0) {
             reject('Cannot sum an empty array');
         }
         /** schedule the execution of the function to the next event loop cycle.
          * This is done using setTimeout() to simulate an asynchronous operations.
-         * 
+         *
          * Replace the logic in the setTimeout() with the actual logic to sum the numbers
          * to understand the difference in execution with and without setTimeout()
          **/
+
         setTimeout(() => {
             let sum = 0;
             for (let i = 0; i < arr.length; i++) {
@@ -25,9 +26,11 @@ function sum2DArray(arr: number[][]): Promise<number> {
                 }
             }
             resolve(sum);
-        }, 0);
-        console.log('returning from sum');
+        },0);
+        console.log("Returning from Sum ...");
+
     });
+
 }
 
 // Example usage:
@@ -38,7 +41,11 @@ const array2D = [
 ];
 
 const sumPromise1 = sum2DArray(array2D);
-console.log('sumPromise1:', sumPromise1);
+sumPromise1.then(value => console.log(value))
+    .catch(reason => console.log("sumPromise1 reject: " + reason));
 
 const sumPromise2 = sum2DArray([]);
-console.log('sumPromise2:', sumPromise2);
+sumPromise2.then(value => console.log(value))
+    .catch(reason => console.log("sumPromise2 reject: " + reason));
+
+console.log('End of script');

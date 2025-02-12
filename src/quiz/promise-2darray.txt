@@ -1,4 +1,16 @@
 - Extract the code in the setTimeout function and replace the setTimeout function  with the extracted code. Then run the main script. 
 - Is there a difference in the flow of execution from when the code was in the setTimeout function?
-- Is the flow of execution in both these examples different from the flow of execution with the examples using the fetch() API, which also returns a promise? 
+
+There is a difference between flow of execution with and without the setTimeout function. With setTimeout,
+the console log of the promise status is printed first, then the results of the promise are printed.
+Without set timeout, the results of the promises are printed first, then the state of the Promise.
+For example with setTimeout, sumPromise1 with print sumPromise1: Promise { <pending> } first then
+it will calculate the sum. Without setTimeout, it will calculate the sum first then print
+sumPromise1: Promise { 45 }, meaning the promise has been resolved.  This means with setTimeout the
+entire script will run first, then it will run the promise code once the end of the main script.
+Without the setTimeout, the promises will not be handled after the main script has ended.
+
+- Is the flow of execution in both these examples different from the flow of execution with the examples using the fetch() API, which also returns a promise?
+
+
 - If yes, explain the code execution difference. Add your explanation to this file.

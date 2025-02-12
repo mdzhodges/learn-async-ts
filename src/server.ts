@@ -6,6 +6,6 @@
  * This can be useful when working with third-party libraries or legacy code that doesn't follow the default export convention.
  */
 import express from 'express';
-import { Request, Response } from 'express';
+import {Request, Response} from 'express';
 
 const app = express();

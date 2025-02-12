@@ -1,16 +1,16 @@
 // A type of the JSON data returned by the Products API
 interface Product {
-  name: string;
-  price: number;
-  image: string;
-  type: string;
+    name: string;
+    price: number;
+    image: string;
+    type: string;
 }
 
-/** Call to fetch() returns a promise 
-which is resolved when the response is received
-**/
+/** Call to fetch() returns a promise
+ which is resolved when the response is received
+ **/
 const fetchPromise2: Promise<Response> = fetch(
-  "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json",
+    "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json",
 );
 
 /**
@@ -21,12 +21,12 @@ const fetchPromise2: Promise<Response> = fetch(
  * This is an illustration of callback hell
  */
 fetchPromise2.then((response: Response) => {
-  const jsonPromise = response.json() as Promise<Product[]>;
-  jsonPromise.then((products: Product[]) => {
-    products.forEach((product: Product) => {
-      console.log(product.name);
+    const jsonPromise = response.json() as Promise<Product[]>;
+    jsonPromise.then((products: Product[]) => {
+        products.forEach((product: Product) => {
+            console.log(product.name);
+        });
     });
-  });
 });
 
 // Logging a message to indicate fetching has started
