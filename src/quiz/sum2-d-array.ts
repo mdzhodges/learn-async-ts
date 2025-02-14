@@ -4,7 +4,7 @@
  * @returns a promise that resolves to the sum of all numbers in the 2D array
  * or rejects if the array is empty
  */
-function sum2DArray(arr: number[][]): Promise<number> {
+export function sum2DArray(arr: number[][]): Promise<number> {
     return new Promise((resolve, reject) => {
         console.log("Sum Called ...");
         if (arr.length === 0) {
@@ -16,6 +16,7 @@ function sum2DArray(arr: number[][]): Promise<number> {
          * Replace the logic in the setTimeout() with the actual logic to sum the numbers
          * to understand the difference in execution with and without setTimeout()
          **/
+
 
         setTimeout(() => {
             let sum = 0;

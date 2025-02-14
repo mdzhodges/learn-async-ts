@@ -12,5 +12,10 @@ Without the setTimeout, the promises will not be handled after the main script h
 
 - Is the flow of execution in both these examples different from the flow of execution with the examples using the fetch() API, which also returns a promise?
 
+Yes the flow of execution in the example where there is no setTimeout is different from the fetch API.
 
 - If yes, explain the code execution difference. Add your explanation to this file.
+
+With fetch, the entire function call is synchronous. That means when fetch is called, the function call will immediately place this on the poll phase of the event loop.
+Without setTimeout, the entire function runs synchronously on the main thread, even though it returns a promise. Although the then block and the catch block are both scheduled asynchronously on the microtask queue.
+With setTimeout, the section of the function that is in the setTimeout function, will schedule the setTimeout portion on the timer queue, allowing for asynchronous execution, similar to fetch.
