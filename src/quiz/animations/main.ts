@@ -11,9 +11,15 @@ const aliceTiming1: KeyframeEffectOptions = {
 
 async function main() {
     try {
-        const alice10 =  document.querySelector<HTMLElement>("#alice1")
-        const alice20 = document.querySelector<HTMLElement>("#alice2");
-        const alice30 = document.querySelector<HTMLElement>("#alice3");
+        const getElement = <T extends HTMLElement>(elementID: string): T => {
+            const element = document.querySelector<T>(elementID);
+            if (!element) throw new Error(`${elementID} not found`);
+            return element;
+        };
+
+        const alice10 = getElement<HTMLElement>("#alice1");
+        const alice20 = getElement<HTMLElement>("#alice2");
+        const alice30 = getElement<HTMLElement>("#alice3");
 
 
         await alice10.animate(aliceTumbling1, aliceTiming1).finished;
